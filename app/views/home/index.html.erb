@@ -1,21 +1,29 @@
+
 <h1 class="text-center mb-4">Welcome to my todolist app</h1>
 <%= render 'layouts/task_form'  %>
 <div class="container">
-  <ul>
+  <ul class="nav nav-tabs">
   <% @categories.each do  |category|%>
-  <li><%= category.title  %></li>
+  <div>
+  <li class="category-title"><%= category.title  %></li>
+ 
   <div class="card">
-    <ul>
+    <ul id="<%= category.title  %>">
       <% category.tasks.each do |task|  %>
-      <li>
+      <li class="category-content"id="<%=task.id%>" >
         <%= task.title  %>
         <% unless task.deadline.nil? %>
           , to read: <%= task.deadline.strftime('%D')  %>
         <% end %>
+         <%= check_box_tag :value,1 , task.status , data: { remote: true, url: task_path(task.id), params: { id: task.id}.to_param, method: "put" }%>
+
+        <%= link_to image_tag('icons8-poubelle-26.png'), task_path(task.id), method: :delete, class: "btn", remote:true%>
+
       </li>
       <% end %>
     </ul>
   </div>
+  
   <% end %>
   </ul>
 </div>
@@ -30,4 +38,8 @@
       </div>
     <% end %>
   </div>
+</div>
+<div id="modal-background"></div>
+<div id="modal-content">
+<%=render 'modals'%>
 </div>

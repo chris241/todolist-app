@@ -8,9 +8,13 @@ before_action :authenticate_user!
     @task = Task.new(task_params)
     @category = Category.find(category_params)
     @task.category = @category
+
     if @task.save
-      redirect_to root_path
+      respond_to do |format|
+      format.html {redirect_to root_path}
+      format.js {}   
       flash[:notice] = "Task created"
+    end
     else
       redirect_to root_path
       flash[:notice] = "Please try again"
@@ -25,9 +29,19 @@ before_action :authenticate_user!
 
   def update
     @task = Task.find(params[:id])
-    @task.update(task_params)
-    redirect_to tasks_path
+    value = params[:value]
+    if value.to_i == 1
+      @task.status = true
+    else
+      @task.status = false
+    end
+    if @task.save
+    respond_to do |format|
+      format.html {redirect_to root_path}
+      format.js {}  
     flash[:notice] = "Task edited"
+  end
+    end
   end
 
   def index
@@ -37,7 +51,10 @@ before_action :authenticate_user!
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    redirect_to root_path
+     respond_to do |format|
+      format.html {redirect_to root_path}
+      format.js {}   
+    end
   end
 
 
