@@ -24,7 +24,8 @@ $("#modal-launcher").click(function(e) {
 $(function(){
 	$('.emailbody').hide();
 	$('.emailobjet').click(function () {
-		$('.emailbody').fadeIn(100);
+		$(this).next().slideToggle();
+		
 	})
 
 });
