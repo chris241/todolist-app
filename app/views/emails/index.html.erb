@@ -14,7 +14,7 @@
       <%@emails.each do |email|%>
     <tr id="<%=email.id%>">
       <th scope="row"id ="id"><%=email.id%></th>
-      <td class="emailobjet"><%=email.object%></td>
+      <td class="emailobjet"><%= link_to "#{email.object}", email_path(email.id), remote: true %></td>
       <td class= "emailbody"><%=email.body%></td>
     </tr>
     <%end%>
