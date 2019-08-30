@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
-  get 'emails/index'
-  get 'emails/show'
-  get 'emails/new'
-  get 'emails/create'
-  get 'emails/update'
-  get 'emails/destroy'
+  resources :emails
   devise_for :users
   root to: "home#index"
   resources :tasks, except: [:show]
