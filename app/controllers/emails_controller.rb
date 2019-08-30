@@ -16,13 +16,12 @@ class EmailsController < ApplicationController
   end
 
   def create
-      @email = Email.create!(object: Faker::Internet.email , body: Faker::Movies::Ghostbusters.quote)
-      respond_to do |format|
-    if @email.save
+     @email = Email.create!(object:Faker::TvShows::SiliconValley.character, body: Faker::Movies::Ghostbusters.quote)
+
+     respond_to do |format|
       format.html { redirect_to root_path }
       format.js { }
     end
-  end
   end
 
   def update
