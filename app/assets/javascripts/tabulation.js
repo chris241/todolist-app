@@ -20,4 +20,13 @@ $("#modal-launcher").click(function(e) {
         $("#modal-content, #modal-background").toggleClass("active");
 
     });
+
+$(function(){
+	$('.emailbody').hide();
+	$('.emailobjet').click(function () {
+		$(this).next().slideToggle();
+		
+	})
+
+});
    });

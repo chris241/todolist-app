@@ -1,2 +1,19 @@
-<h1>Emails#index</h1>
-<p>Find me in app/views/emails/index.html.erb</p>
+<table class="table table-bordered" >
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Listes des emails  </th>
+      <th scope="col">Emails sélectionnés </th>
+  
+    </tr>
+  </thead>
+  <tbody>
+      <%@emails.each do |e|%>
+    <tr>
+      <th scope="row"id ="<%=e.id%>"><%=e.id%></th>
+      <td class="emailobjet"><%=e.object%></td>
+      <td class= "emailbody"><%=e.body%></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
