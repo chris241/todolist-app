@@ -24,6 +24,7 @@ $("#modal-launcher").click(function(e) {
 $(function(){
 	$('.emailbody').hide();
 	$('.emailobjet').click(function () {
+    $('.emailbody').hide();
 		$(this).next().slideToggle();
 		
 	})
