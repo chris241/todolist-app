@@ -20,4 +20,12 @@ $("#modal-launcher").click(function(e) {
         $("#modal-content, #modal-background").toggleClass("active");
 
     });
+
+$(function(){
+	$('.emailbody').hide();
+	$('.emailobjet').click(function () {
+		$('.emailbody').fadeIn(100);
+	})
+
+});
    });

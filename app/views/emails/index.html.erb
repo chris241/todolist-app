@@ -8,10 +8,12 @@
     </tr>
   </thead>
   <tbody>
+      <%@emails.each do |e|%>
     <tr>
-      <th scope="row"></th>
-      <td>Mark</td>
-      <td>Otto</td>
+      <th scope="row"><%= e.id%></th>
+      <td class="emailobjet"><%=e.object%></td>
+      <td class= "emailbody"><%=e.body%></td>
     </tr>
+    <%end%>
   </tbody>
 </table>
